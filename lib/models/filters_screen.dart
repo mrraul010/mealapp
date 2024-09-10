@@ -7,7 +7,7 @@ class FilterScreen extends StatefulWidget {
   final Function saveFilters;
   final Map<String, bool> currentFilters;
 
-  FilterScreen(this.currentFilters, this.saveFilters);
+  const FilterScreen(this.currentFilters, this.saveFilters, {super.key});
   @override
   State<FilterScreen> createState() => _FilterScreenState();
 }
@@ -29,7 +29,7 @@ class _FilterScreenState extends State<FilterScreen> {
   }
 
   Widget _buildSwitchListTile(String title, String description,
-      bool currentValue, void Function(bool) updateValue) {
+      bool currentValue, ValueChanged<bool> updateValue) {
     return SwitchListTile(
       title: Text(title),
       value: currentValue,
@@ -43,7 +43,7 @@ class _FilterScreenState extends State<FilterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your Filters'),
+        title: const Text('Your Filters'),
         actions: <Widget>[
           IconButton(
               onPressed: () {
@@ -55,15 +55,15 @@ class _FilterScreenState extends State<FilterScreen> {
                 };
                 widget.saveFilters(selectedFilters);
               },
-              icon: const Icon(Icons.airlines))
+              icon: const Icon(Icons.save)),
         ],
         backgroundColor: const Color.fromARGB(255, 68, 214, 255),
       ),
-      drawer: MainDrawer(),
+      drawer: const MainDrawer(),
       body: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Text(
               'Adjust Your Meal Selection',
               style: Theme.of(context).textTheme.titleLarge,

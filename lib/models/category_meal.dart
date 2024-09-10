@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mealapp/meal_item.dart';
-import './dummy_data.dart';
-import './meal.dart';
+import 'package:mealapp/models/meal.dart';
 
 class CategoryMeal extends StatefulWidget {
-  static const routeName = '/category-meals';
+  static const routeName = '/category-meal';
 
   final List<Meal> availableMeals;
-  CategoryMeal(this.availableMeals);
+  const CategoryMeal(this.availableMeals, {super.key});
 
   @override
   _CategoryMealState createState() => _CategoryMealState();

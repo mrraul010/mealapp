@@ -7,7 +7,7 @@ import 'package:mealapp/models/meal.dart';
 class TabScreen extends StatefulWidget {
   final List<Meal> favouriteMeals;
 
-  TabScreen(this.favouriteMeals);
+  const TabScreen(this.favouriteMeals, {super.key});
 
   @override
   _TabScreenState createState() => _TabScreenState();
@@ -21,7 +21,7 @@ class _TabScreenState extends State<TabScreen> {
   void initState() {
     _pages = [
       {
-        'page': CategoriesScreen(),
+        'page': const CategoriesScreen(),
         'title': 'Categories',
       },
       {
@@ -42,10 +42,12 @@ class _TabScreenState extends State<TabScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_pages[_selectedPageIndex]['title'].toString()),
+        title: Text(
+          _pages[_selectedPageIndex]['title'] as String,
+        ),
       ),
-      drawer: MainDrawer(),
-      body: _pages[_selectedPageIndex]['page'] as Widget?,
+      drawer: const MainDrawer(),
+      body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         currentIndex: _selectedPageIndex,

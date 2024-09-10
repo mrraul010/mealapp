@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './category.dart';
-import './meal.dart';
+import 'package:mealapp/models/category.dart';
+import 'package:mealapp/models/meal.dart';
 
 const DUMMY_CATEGORIES = [
   Category(
@@ -56,7 +56,7 @@ const DUMMY_CATEGORIES = [
   ),
 ];
 
-List<Meal> DUMMY_MEALS = [
+const DUMMY_MEALS = [
   Meal(
     id: 'm1',
     categories: [
