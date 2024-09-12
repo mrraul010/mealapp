@@ -95,7 +95,22 @@ class MealDetailScreen extends StatelessWidget {
         child: Icon(
           isFavorite(mealId) ? Icons.star : Icons.border_all,
         ),
-        onPressed: () => toggleFavorite(mealId),
+        onPressed: () {
+          toggleFavorite(mealId);
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(
+              isFavorite(mealId)
+                  ? 'Added to favorites!'
+                  : 'Removed from favorites!',
+              style: TextStyle(
+                fontSize: 21.0,
+                color: Colors.black,
+              ),
+            ),
+            duration: Duration(seconds: 2),
+            backgroundColor: Color.fromARGB(255, 68, 214, 255),
+          ));
+        },
       ),
     );
   }
