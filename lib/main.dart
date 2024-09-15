@@ -6,6 +6,7 @@ import 'package:mealapp/models/meal_detail_screen.dart';
 import 'package:mealapp/models/tab_screen.dart';
 import 'package:mealapp/models/filters_screen.dart';
 import './models/meal.dart';
+import 'package:mealapp/splash_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -75,9 +76,10 @@ class _MyAppState extends State<MyApp> {
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
       ),
-      initialRoute: '/',
+      initialRoute: '/splash',
       routes: {
         '/': (ctx) => TabScreen(_favouriteMeals),
+        '/splash': (ctx) => SplashScreen(),
         CategoryMeal.routeName: (ctx) => CategoryMeal(_availableMeals),
         MealDetailScreen.routeName: (ctx) =>
             MealDetailScreen(_toggleFavourite, _isMealFavourite),
